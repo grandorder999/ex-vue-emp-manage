@@ -1,7 +1,6 @@
 /**
  * 従業員情報を表す部品用のクラスです.
  */
-
 export class Employee {
   constructor(
     // ID
