@@ -36,7 +36,7 @@ export default new Vuex.Store({
      *従業員一覧情報を作成してstateに格納する.
      *
      * @param state - ステート
-     * @param payload - 従業員一覧情報
+     * @param payload - WebAPIから取得した従業員情報
      */
     showEmployeeList(state, payload) {
       state.totalEmployeeCount = payload.totalEmployeeCount;
@@ -85,7 +85,7 @@ export default new Vuex.Store({
      * IDから従業員を１件検索し返す
      *
      * @param state - ステート
-     * @returns Employee配列の0番目
+     * @returns 従業員情報
      */
     getEmployeeById(state) {
       return (id: number) => {
