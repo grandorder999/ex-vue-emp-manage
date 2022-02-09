@@ -88,8 +88,32 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import axios from "axios";
 @Component
-export default class XXXComponent extends Vue {}
+export default class RegisterAdmin extends Vue {
+  private errorMessage = "";
+  private lastName = "";
+  private firstName = "";
+  private mailAddress = "";
+  private password = "";
+
+  async registerAdmin(): Promise<void> {
+    const responce = await axios.post(
+      "http://153.127.48.168:8080/ex-emp-api/insert",
+      {
+        name: this.lastName + "" + this.firstName,
+        mailAddress: this.mailAddress,
+        password: this.password,
+      }
+    );
+    console.dir("responce:" + JSON.stringify(responce));
+    if (responce.data.status === "success") {
+      this.$router.push("/loginAdmin");
+    } else {
+      this.errorMessage = "エラーメッセージ";
+    }
+  }
+}
 </script>
 
 <style scoped></style>
