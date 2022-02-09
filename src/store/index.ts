@@ -40,7 +40,6 @@ export default new Vuex.Store({
      */
     showEmployeeList(state, payload) {
       state.totalEmployeeCount = payload.totalEmployeeCount;
-      // state.employees = payload.employees;
       state.employees = new Array<Employee>();
       for (const employee of payload.employees) {
         state.employees.push(
