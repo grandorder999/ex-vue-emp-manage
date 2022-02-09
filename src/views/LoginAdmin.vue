@@ -72,6 +72,7 @@ export default class LoginAdmin extends Vue {
   private password = "";
   /**
    * ログインをする.
+   * @returns Promiseオブジェクト
    */
   async loginAdmin(): Promise<void> {
     const responce = await axios.post(

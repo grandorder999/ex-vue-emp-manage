@@ -89,6 +89,7 @@ export default class RegisterAdmin extends Vue {
 
   /**
    *管理者情報を登録する.
+   *@returns Promiseオブジェクト
    */
   async registerAdmin(): Promise<void> {
     const responce = await axios.post(
