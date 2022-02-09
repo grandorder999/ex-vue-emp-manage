@@ -88,7 +88,7 @@ export default class RegisterAdmin extends Vue {
   private password = "";
 
   /**
-   *管理者情報を登録する
+   *管理者情報を登録する.
    */
   async registerAdmin(): Promise<void> {
     const responce = await axios.post(
@@ -109,8 +109,4 @@ export default class RegisterAdmin extends Vue {
 }
 </script>
 
-<style scoped>
-.register-page {
-  width: 600px;
-}
-</style>
+<style scoped></style>
