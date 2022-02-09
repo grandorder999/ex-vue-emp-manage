@@ -1,7 +1,6 @@
 /**
  * 管理者情報を表す部品用のクラスです.
  */
-
 export class Administrator {
   constructor(
     // ID
