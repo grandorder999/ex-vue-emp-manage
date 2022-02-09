@@ -75,13 +75,17 @@ export default class LoginAdmin extends Vue {
    */
   async loginAdmin(): Promise<void> {
     const responce = await axios.post(
-      "http://153.127.48.168:8080/ex-emp-api/insert"
+      "http://153.127.48.168:8080/ex-emp-api/login",
+      {
+        mailAddress: this.mailAddress,
+        password: this.password,
+      }
     );
     console.dir("responce:" + JSON.stringify(responce));
     if (responce.data.status === "success") {
       this.$router.push("/employeeList");
     } else {
-      this.errorMessage = "登録できませんでした";
+      this.errorMessage = "ログインに失敗しました";
     }
   }
 }
