@@ -63,18 +63,35 @@ export default new Vuex.Store({
     },
   }, // end mutations
   getters: {
-    // 従業員数を返す
+    /**
+     * 従業員数を返す.
+     *
+     * @param state - ステート
+     * @returns 従業員数
+     */
     getEmployeeCount(state) {
       return state.totalEmployeeCount;
     },
-    // 従業員一覧を返す
+    /**
+     * 従業員一覧を返す
+     *
+     * @param state - ステート
+     * @returns 従業員一覧
+     */
     getEmployees(state) {
       return state.employees;
     },
-    // IDから従業員を１件検索し返す
+    /**
+     * IDから従業員を１件検索し返す
+     *
+     * @param state - ステート
+     * @returns Employee配列の0番目
+     */
     getEmployeeById(state) {
       return (id: number) => {
         return state.employees.filter((employee) => employee.id === id)[0];
+        // const newEmployee = state.employees.filter((employee) => employee.id === id);
+        // return newEmployee[0]; でも可
       };
     },
   }, // end getters
