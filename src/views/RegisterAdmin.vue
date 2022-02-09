@@ -109,4 +109,8 @@ export default class RegisterAdmin extends Vue {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.register-page {
+  width: 600px;
+}
+</style>
