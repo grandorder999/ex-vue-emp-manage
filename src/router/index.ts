@@ -6,6 +6,11 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   // // パスが登録されていない場合はログイン画面へ(LoginAdmin.vueを作成したらコメントを外してください)
   {
+    path: "/loginAdmin",
+    component: () => import("../views/LoginAdmin.vue"),
+  },
+
+  {
     path: "/registerAdmin",
     component: () => import("../views/RegisterAdmin.vue"),
   },
