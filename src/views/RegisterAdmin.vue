@@ -91,12 +91,20 @@ import { Component, Vue } from "vue-property-decorator";
 import axios from "axios";
 @Component
 export default class RegisterAdmin extends Vue {
+  //登録者のエラーメッセージ
   private errorMessage = "";
+  // 姓
   private lastName = "";
+  // 名
   private firstName = "";
+  // メールアドレス
   private mailAddress = "";
+  // パスワード
   private password = "";
 
+  /**
+   *管理者情報を登録する
+   */
   async registerAdmin(): Promise<void> {
     const responce = await axios.post(
       "http://153.127.48.168:8080/ex-emp-api/insert",
@@ -110,7 +118,7 @@ export default class RegisterAdmin extends Vue {
     if (responce.data.status === "success") {
       this.$router.push("/loginAdmin");
     } else {
-      this.errorMessage = "エラーメッセージ";
+      this.errorMessage = "登録できませんでした";
     }
   }
 }
