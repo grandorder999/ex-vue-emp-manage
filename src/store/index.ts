@@ -1,5 +1,5 @@
 /**
- * 従業員情報を持たせたVuexストア設定ファイルです.
+ * 共通情報を持たせたVuexストア設定ファイルです.
  */
 import Vue from "vue";
 import Vuex from "vuex";
@@ -11,14 +11,16 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   strict: true,
   state: {
+    // 従業員数
     totalEmployeeCount: 0,
+    // 従業員一覧
     employees: new Array<Employee>(),
   }, // end state
   actions: {
     /**
      * 従業員一覧情報をWebAPIから取得してmutationを呼び出す.
      *
-     * @param context - 仮のVueインスタンス
+     * @param context - コンテキスト
      */
     async getEmployeeList(context) {
       const responce = await axios.get(
@@ -33,12 +35,12 @@ export default new Vuex.Store({
     /**
      *従業員一覧情報を作成してstateに格納する.
      *
-     * @param state - 従業員数、従業員一覧
+     * @param state - ステート
      * @param payload - 従業員一覧情報
      */
     showEmployeeList(state, payload) {
       state.totalEmployeeCount = payload.totalEmployeeCount;
-      state.employees = payload.employees;
+      // state.employees = payload.employees;
       state.employees = new Array<Employee>();
       for (const employee of payload.employees) {
         state.employees.push(
