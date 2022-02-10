@@ -3,6 +3,9 @@
     <div class="top-wrapper">
       <div class="container">
         <div class="row register-page">
+          <div class="error" v-for="error of errors" v-bind:key="error">
+            {{ error }}
+          </div>
           <div class="error">{{ errorMessage }}</div>
           <form class="col s12" id="reg-form">
             <div class="row">
@@ -76,6 +79,8 @@ import { Component, Vue } from "vue-property-decorator";
 import axios from "axios";
 @Component
 export default class RegisterAdmin extends Vue {
+  // 入力値チェックのエラーメッセージ
+  private errors: Array<string> = [];
   //登録者のエラーメッセージ
   private errorMessage = "";
   // 姓
@@ -92,6 +97,23 @@ export default class RegisterAdmin extends Vue {
    *@returns Promiseオブジェクト
    */
   async registerAdmin(): Promise<void> {
+    // エラーチェック
+    this.errors = [];
+    if (this.lastName === "" || this.firstName === "") {
+      this.errors.push("姓または名が入力されていません");
+    }
+    if (this.mailAddress === "") {
+      this.errors.push("メールアドレスが入力されていません");
+    }
+    if (this.password === "") {
+      this.errors.push("パスワードが入力されていません");
+    }
+    // エラーが１つ以上あれば処理を止める
+    if (0 < this.errors.length) {
+      return; //処理終了のreturn
+    }
+
+    //管理者情報登録処理
     const responce = await axios.post(
       "http://153.127.48.168:8080/ex-emp-api/insert",
       {
@@ -113,5 +135,8 @@ export default class RegisterAdmin extends Vue {
 <style scoped>
 .register-page {
   width: 600px;
+}
+.error {
+  color: red;
 }
 </style>
