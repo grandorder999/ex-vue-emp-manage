@@ -80,7 +80,7 @@
                         value="3"
                         required
                       />
-                      <label for="dependentsCount2"></label>
+                      <label for="dependentsCount2">扶養人数</label>
                     </div>
                   </td>
                 </tr>
@@ -141,7 +141,7 @@ export default class EmployeeDetail extends Vue {
   }
   /**
    *@param 扶養人数を更新する
-   @returns Promiseオブジェクト
+   *@returns Promiseオブジェクト
    */
   async update(): Promise<void> {
     const responce = await axios.post(
