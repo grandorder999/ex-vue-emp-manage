@@ -11,6 +11,7 @@ const routes: Array<RouteConfig> = [
   },
 
   {
+    // リンクを押したときにリクエストパラメータを送るから:idをつける
     path: "/employeeDetail/:id",
     component: () => import("../views/EmployeeDetail.vue"),
   },

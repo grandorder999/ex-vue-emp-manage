@@ -34,10 +34,10 @@
 import { Component, Vue } from "vue-property-decorator";
 import { Employee } from "@/types/employee";
 @Component
-/**
- * Vuexストアのアクション経由で非同期でWebAPIから従業員一覧を取得する.
- */
 export default class EmployeeList extends Vue {
+  /**
+   * @param Vuexストアのアクション経由で非同期でWebAPIから従業員一覧を取得する.
+   */
   created(): void {
     console.log("createdイベント発生");
     this.$store.dispatch("getEmployeeList");
