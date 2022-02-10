@@ -80,7 +80,7 @@
                         value="3"
                         required
                       />
-                      <label for="dependentsCount2">扶養人数</label>
+                      <label for="dependentsCount2"></label>
                     </div>
                   </td>
                 </tr>
@@ -129,18 +129,20 @@ export default class EmployeeDetail extends Vue {
   //対象の従業員の扶養人数
   private currentDependentsCount = 0;
   /**
-   *@param VuexストアのGetter経由で受け取ったリクエストパラメータのIDから１件の従業員情報を取得する.
+   *VuexストアのGetter経由で受け取ったリクエストパラメータのIDから１件の従業員情報を取得する.
    */
   created(): void {
     console.log("createdイベント発生");
     const employeeId = Number(this.$route.params.id);
     this.currentEmployee = this.$store.getters.getEmployeeById(employeeId);
+    // 画像取得
     this.currentEmployeeImage =
       "http://153.127.48.168:8080/ex-emp-api/img/" + this.currentEmployee.image;
+    // 扶養人数取得
     this.currentDependentsCount = this.currentEmployee.dependentsCount;
   }
   /**
-   *@param 扶養人数を更新する
+   *扶養人数を更新する.
    *@returns Promiseオブジェクト
    */
   async update(): Promise<void> {

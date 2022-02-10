@@ -10,7 +10,7 @@ import axios from "axios";
 @Component
 export default class logoutAdmin extends Vue {
   /**
-   *@param ログアウトする
+   *ログアウトする.
    *@returns Promiseオブジェクト
    */
   async created(): Promise<void> {
