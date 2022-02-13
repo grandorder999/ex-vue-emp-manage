@@ -18,7 +18,7 @@ export default class logoutAdmin extends Vue {
       "http://153.127.48.168:8080/ex-emp-api/logout"
     );
     console.dir("responce:" + JSON.stringify(responce));
-    this.$router.push("/loginAdmin");
+    this.$router.push("/loginAdmin"); // ログイン画面に遷移するだけでOK
   }
 }
 </script>
