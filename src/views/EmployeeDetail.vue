@@ -133,11 +133,11 @@ export default class EmployeeDetail extends Vue {
    */
   created(): void {
     console.log("createdイベント発生");
-    const employeeId = Number(this.$route.params.id);
-    this.currentEmployee = this.$store.getters.getEmployeeById(employeeId);
+    const employeeId = Number(this.$route.params.id); // $routeは$routerの{}一個分&リクエストパラメータのidの数字(文字列)を取得
+    this.currentEmployee = this.$store.getters.getEmployeeById(employeeId); // 引数にemployeeIdを設定
     // 画像取得
     this.currentEmployeeImage =
-      "http://153.127.48.168:8080/ex-emp-api/img/" + this.currentEmployee.image;
+      "http://153.127.48.168:8080/ex-emp-api/img/" + this.currentEmployee.image; // 画像ファイル名→this.currentEmployee.image
     // 扶養人数取得
     this.currentDependentsCount = this.currentEmployee.dependentsCount;
   }
